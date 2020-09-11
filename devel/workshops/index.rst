@@ -81,7 +81,7 @@ Which means you have some sql statements not executed yet and you need to run th
 
 .. image:: ./img/geonode-project-gui.png
 
-6- Once the previous step is done, you can visit 0.0.0.0:8000 to view the GUI of GeoNode. However, we still don't have an account in order to login from the GUI. This can be done using "paver sync". The command will create sync with latest fixtures and also creates a superuser "admin" with default password "admin"
+6- Once the previous step is done, you can visit 0.0.0.0:8000 to view the GUI of GeoNode. However, we still don't have an account in order to login from the GUI. This can be done using ``paver sync``. The command will create sync with latest fixtures and also creates a superuser "admin" with default password "admin"
 
 
 7- Use the created account to login from the GUI through localhost:8000 or 0.0.0.0:8000
@@ -373,7 +373,9 @@ Create the django app
 
 Django gives us an handy command to create apps. We already used startproject to create our geonode-project, now we can use startapp to create the app.
 
-python manage.py startapp geocollections
+.. code:: shell
+    
+    python manage.py startapp geocollections
 
 This will create a folder named geocollections that contains empty models and views.
 
@@ -381,7 +383,13 @@ We need to add the new app to the INSTALLED_APPS of our project. inside "my_geon
 
 .. code:: python
    
-   INSTALLED_APPS += (PROJECT_NAME,) to be:  INSTALLED_APPS += (PROJECT_NAME, 'geocollections',)
+   INSTALLED_APPS += (PROJECT_NAME,)
+
+to be:
+
+.. code:: python
+    
+    INSTALLED_APPS += (PROJECT_NAME, 'geocollections',)
 
 
 **Add a custom model**
